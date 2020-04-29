@@ -6,12 +6,17 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.19.2",
+    "babel-plugin-react-css-modules": "^5.2.6",
+    "concurrently": "^5.2.0",
+    "less-watch-compiler": "^1.14.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
+    "dev-start": "concurrently --kill-others \"less-watch-compiler --config less-watcher.config.json\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -32,9 +37,8 @@
     ]
   },
   "devDependencies": {
-    "css-loader": "^3.5.3",
-    "less": "^3.11.1",
-    "less-loader": "^5.0.0",
-    "style-loader": "^1.2.0"
+    "concurrently": "^4.1.0",
+    "less": "^3.9.0",
+    "less-watch-compiler": "^1.13.0"
   }
 }
