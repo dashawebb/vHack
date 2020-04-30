@@ -1,12 +1,12 @@
 import React from 'react';
 import DashboardPage from "./components/DashboardPage";
-import './App.css';
+import './App.less';
 
 function App() {
   return (
-    <div className="App">
+      <div className="App">
         <DashboardPage />
-    </div>
+      </div>
   );
 }
 

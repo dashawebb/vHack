@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import styles from "./DashboardPage.module.css";
+import styles from "./DashboardPage.module.less";
 import { ReactComponent as Logo } from "../assets/img/logo.svg";
 import { ReactComponent as Stat } from "../assets/img/stat.svg";
 import { ReactComponent as Calendar } from "../assets/img/calendar.svg";
