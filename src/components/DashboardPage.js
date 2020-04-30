@@ -3,9 +3,9 @@ import axios from 'axios'
 import { ReactComponent as Logo } from '../assets/img/logo.svg'
 import { ReactComponent as Stat } from '../assets/img/stat.svg'
 import { ReactComponent as Calendar } from '../assets/img/calendar.svg'
-import { ReactComponent as Mail } from '../assets/img/mail.svg'
+import { ReactComponent as MailIcon } from '../assets/img/mail.svg'
 import { ReactComponent as Camera } from '../assets/img/camera.svg'
-import { ReactComponent as Homework } from '../assets/img/homework.svg'
+import { ReactComponent as HomeworkIcon } from '../assets/img/homework.svg'
 import styles from './DashboardPage.module.less'
 
 const API = 'http://194.87.94.107:5000/teacher/'
@@ -36,44 +36,92 @@ const Dashboard = () => {
     }
 
     return (
-        <div>
-            <span className={styles.title}>прив</span>
+        <div className={styles.content}>
+            <div className={styles.greeting}>
+            <div className={styles.title}>Добрый день, </div>
+            <div className={`${styles.name} ${styles.title}`}> Иванова Мария Петровна</div></div>
         </div>
     )
 }
 
-const NavPanel = () => {
+const NavPanel = ({ selectSection }) => {
     return (
         <div className={styles.navPanel}>
             <div className={styles.logo}>
                 <Logo />
             </div>
             <div className={styles.navIcons}>
-                <div className={styles.icon} onClick={() => {}}>
+                <div
+                    className={styles.icon}
+                    onClick={() => {
+                        selectSection(0)
+                    }}
+                >
                     <Stat />
                 </div>
-                <div className={styles.icon} onClick={() => {}}>
+                <div
+                    className={styles.icon}
+                    onClick={() => {
+                        selectSection(1)
+                    }}
+                >
                     <Calendar />
                 </div>
-                <div className={styles.icon} onClick={() => {}}>
-                    <Mail />
+                <div
+                    className={styles.icon}
+                    onClick={() => {
+                        selectSection(2)
+                    }}
+                >
+                    <MailIcon />
                 </div>
-                <div className={styles.icon} onClick={() => {}}>
+                <div
+                    className={styles.icon}
+                    onClick={() => {
+                        selectSection(3)
+                    }}
+                >
                     <Camera />
                 </div>
-                <div className={styles.icon} onClick={() => {}}>
-                    <Homework />
+                <div
+                    className={styles.icon}
+                    onClick={() => {
+                        selectSection(4)
+                    }}
+                >
+                    <HomeworkIcon />
                 </div>
             </div>
         </div>
     )
 }
 
+const Timetable = () => {
+    return <div className={styles.content}>расписание</div>
+}
+
+const Mail = () => {
+    return <div className={styles.content}>Личка</div>
+}
+
+const Lesson = () => {
+    return <div className={styles.content}>Трансляция</div>
+}
+
+const Homework = () => {
+    return <div className={styles.content}>домашка</div>
+}
+
+const contentArray = [<Dashboard />, <Timetable />, <Mail />, <Lesson />, <Homework />]
+
 const DashboardPage = () => {
+    const [selectedTab, setSelectedTab] = useState(0)
+
     return (
         <div className={styles.container}>
-            <NavPanel />
-            <Dashboard />
+            <NavPanel selectSection={setSelectedTab} />
+            <div>{contentArray[selectedTab.toString()]}
+            </div>
         </div>
     )
 }
