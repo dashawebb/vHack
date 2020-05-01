@@ -30,13 +30,17 @@ const Timer = ({ timeOff }) => {
             <div className={styles.wrapper}>
                 <div className={styles.card}>
                     <div className={styles.title}>Ближайший урок</div>
-                    <div>Биология, 8А</div>
+                    <div className={styles.subject}>Биология, 8А</div>
                 </div>
                 <div className={styles.card}>
-                    <div className={styles.title}>Урок начнется через</div>
-                    <div className={styles.timer}>
-                        0{time.hours} : 0{time.minutes} :
-                        {time.seconds > 60 ? time.seconds % (60 * time.minutes) : time.seconds}
+                    <div className={styles.timerCard}>
+                        <div className={styles.title}>
+                            {!timeToStart ? 'Урок начнётся через' : 'Урок начался!'}
+                        </div>
+                        <div className={`${styles.timer} ${timeToStart ? styles.timerOff : ''}`}>
+                            0{time.hours} : 0{time.minutes} :{' '}
+                            {time.seconds > 60 ? time.seconds % (60 * time.minutes) : time.seconds}
+                        </div>
                     </div>
                 </div>
                 {timeToStart && (
@@ -57,7 +61,8 @@ const Translation = () => {
                 <div className={styles.lessonContent}>а тут содержание урока</div>
             </div>
             <div className={styles.students}>студенты</div>
-        </div>)
+        </div>
+    )
 }
 
 const Lesson = () => {

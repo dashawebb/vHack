@@ -15,32 +15,53 @@
     width: 50%;
 
     .card {
-        align-items: center;
+        //align-items: center;
         background-color: #ffffff;
         border-radius: 10px;
-        border-bottom: 8px solid #EDEDF6;;
+        border-bottom: 8px solid #ededf6;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 40px;
+        padding: 40px 60px;
         height: 25%;
         width: 100%;
 
         .title {
+            font-family: "Ubuntu", sans-serif;
             font-size: 18px;
             line-height: 21px;
             letter-spacing: 0.01em;
-            color: #A6ACBE;
+            color: #a6acbe;
+            margin-bottom: 60px;
         }
 
-        .timer {
-            font-family: 'Ubuntu', sans-serif;
+        .subject {
+            font-family: "Ubuntu", sans-serif;
             font-style: normal;
-            font-weight: bold;
-            font-size: 96px;
-            line-height: 110px;
+            font-weight: 500;
+            font-size: 30px;
+            line-height: 34px;
             letter-spacing: 0.01em;
-            color: #8576ED;
+            color: #333333;
+        }
+
+        .timerCard {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+
+            .timer {
+                font-family: "Ubuntu", sans-serif;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 96px;
+                line-height: 110px;
+                letter-spacing: 0.01em;
+                color: #8576ed;
+            }
+            .timerOff {
+                color: #59e69a;
+            }
         }
     }
     .startButton {
@@ -50,8 +71,11 @@
         justify-content: center;
         width: 294px;
         height: 65.33px;
-        background: #6C8DFF;
+        background: #6c8dff;
         border-radius: 5px;
+        &:hover {
+            background-color: #6686F9;
+        }
 
         .buttonTitle {
             font-family: Ubuntu;
@@ -60,7 +84,7 @@
             font-size: 20px;
             line-height: 23px;
             letter-spacing: 0.01em;
-            color: #FFFFFF;
+            color: #ffffff;
         }
     }
 }
