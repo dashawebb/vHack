@@ -1,15 +1,15 @@
 .container {
-    background-color: #F8F8FB;
+    background-color: #f8f8fb;
     display: flex;
     height: 100vh;
     width: 100%;
 }
 
 .navPanel {
-    background-color: #373B53;
+    background-color: #373b53;
     display: flex;
     flex-direction: column;
-    width: 72px;
+    min-width: 72px;
     height: 100vh;
 
     .logo {
@@ -17,21 +17,51 @@
         display: flex;
         justify-content: center;
         height: 72px;
-        background-color: #2E54D9;
+        background-color: #2e54d9;
     }
     .navIcons {
         align-items: center;
         display: flex;
-        /*height: 400px;*/
         flex-direction: column;
         flex-grow: 1;
         padding: 40px 0;
 
-        .icon {
+        .button {
+            align-items: center;
             cursor: pointer;
-            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-width: 64px;
+            min-height: 64px;
             margin-bottom: 20px;
+
+            &:hover {
+                path,
+                rect {
+                    fill: #ffffff;
+                }
+            }
+
+
+            .selected {
+                align-items: center;
+                width: 44px;
+                height: 44px;
+                background: #FFFFFF;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+                box-sizing: border-box;
+                border-radius: 10px;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                path,
+                rect {
+                    fill: #6C8DFF;
+                }
+            }
         }
+
+
     }
 }
 
@@ -45,7 +75,7 @@
         padding: 60px 100px;
 
         .title {
-            font-family: Ubuntu;
+            font-family: 'Ubuntu', sans-serif;
             font-weight: 500;
             font-size: 30px;
             line-height: 34px;
@@ -54,14 +84,7 @@
         }
 
         .name {
-            color: #6C8DFF;
+            color: #2e54d9;
         }
     }
 }
-
-
-
-
-
-
-

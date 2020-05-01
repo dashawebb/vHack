@@ -1,0 +1,85 @@
+.content {
+    display: flex;
+    flex-grow: 1;
+    height: 100vh;
+    justify-content: center;
+    width: 100%;
+}
+
+.wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    //flex-grow: 1;
+    width: 50%;
+
+    .card {
+        align-items: center;
+        background-color: #ffffff;
+        border-radius: 10px;
+        border-bottom: 8px solid #EDEDF6;;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 40px;
+        height: 25%;
+        width: 100%;
+
+        .title {
+            font-size: 18px;
+            line-height: 21px;
+            letter-spacing: 0.01em;
+            color: #A6ACBE;
+        }
+
+        .timer {
+            font-family: 'Ubuntu', sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 96px;
+            line-height: 110px;
+            letter-spacing: 0.01em;
+            color: #8576ED;
+        }
+    }
+    .startButton {
+        align-items: center;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        width: 294px;
+        height: 65.33px;
+        background: #6C8DFF;
+        border-radius: 5px;
+
+        .buttonTitle {
+            font-family: Ubuntu;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 23px;
+            letter-spacing: 0.01em;
+            color: #FFFFFF;
+        }
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+
+    .topPanel {
+        display: flex;
+        height: 50vh;
+        .translation {
+            display: flex;
+            flex-grow: 1;
+        }
+        .lessonContent {
+            width: 33%;
+        }
+    }
+}

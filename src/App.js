@@ -1,11 +1,11 @@
 import React from 'react';
-import DashboardPage from "./components/DashboardPage";
+import Desktop from "./components/Desktop";
 import './App.less';
 
 function App() {
   return (
       <div className="App">
-        <DashboardPage />
+        <Desktop />
       </div>
   );
 }
