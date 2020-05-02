@@ -1,9 +1,8 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import styles from './Lesson.module.less'
 
-const Timer = ({ seconds, timeToStart = false, setTimeToStart = () => {} }) => {
-    // Таймер задается тут
+const Timer = ({ seconds, setTimeToStart = () => {} }) => {
+    // Таймер задается в родительском компоненте пропсом seconds
     const [counter, setCounter] = useState(seconds)
 
     useEffect(() => {
@@ -24,11 +23,13 @@ const Timer = ({ seconds, timeToStart = false, setTimeToStart = () => {} }) => {
         }
     }, [counter])
 
+    const format = (time) => (time < 10 ? `0${time}` : time)
+
     return (
-        <div className={`${styles.timer} ${timeToStart ? styles.timerOff : ''}`}>
-            0{time.hours} : 0{time.minutes} :{' '}
-            {time.seconds > 60 ? time.seconds % (60 * time.minutes) : time.seconds}
-        </div>
+        <>
+            {format(time.hours)} : {format(time.minutes)} :{' '}
+            {time.seconds > 60 ? time.seconds % (60 * time.minutes) : format(time.seconds)}
+        </>
     )
 }
 

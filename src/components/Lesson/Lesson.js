@@ -1,32 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import LessonContent from "./LessonContent";
-import Students from "./Students";
+import LessonContent from './LessonContent'
+import Students from './Students'
 import Timer from './Timer'
 import styles from './Lesson.module.less'
 
 const CounterScreen = ({ timeOff }) => {
-    // Таймер задается тут
-    // const [counter, setCounter] = useState(5)
-    //
     const [timeToStart, setTimeToStart] = useState(false)
-    //
-    // useEffect(() => {
-    //     const timer = counter > 0 && setInterval(() => setCounter(counter - 1), 1000)
-    //     return () => clearInterval(timer)
-    // }, [counter])
-    //
-    // const [time, setTime] = useState({ hours: 0, minutes: 0, seconds: 0 })
-    // useEffect(() => {
-    //     setTime({
-    //         ...time,
-    //         hours: Math.floor(counter / 3600),
-    //         minutes: Math.floor(counter / 60),
-    //         seconds: counter,
-    //     })
-    //     if (counter === 0) {
-    //         setTimeToStart(true)
-    //     }
-    // }, [counter])
 
     return (
         <div className={styles.content}>
@@ -40,7 +19,12 @@ const CounterScreen = ({ timeOff }) => {
                         <div className={styles.title}>
                             {!timeToStart ? 'Урок начнётся через' : 'Урок начался!'}
                         </div>
-                        <Timer seconds={5} timeToStart={timeToStart} setTimeToStart={setTimeToStart}/>
+                        <div className={`${styles.timer} ${timeToStart ? styles.timerOff : ''}`}>
+                            <Timer
+                                seconds={5}
+                                setTimeToStart={setTimeToStart}
+                            />
+                        </div>
                     </div>
                 </div>
                 {timeToStart && (
@@ -58,7 +42,7 @@ const Translation = () => {
         <div className={styles.container}>
             <div className={styles.topPanel}>
                 <div className={styles.translation}>Ща урок будет</div>
-                <LessonContent/>
+                <LessonContent />
             </div>
             <Students />
         </div>
@@ -66,7 +50,7 @@ const Translation = () => {
 }
 
 const Lesson = () => {
-    const [showTimer, setShowTimer] = useState(true)
+    const [showTimer, setShowTimer] = useState(false)
     return <>{showTimer ? <CounterScreen timeOff={setShowTimer} /> : <Translation />}</>
 }
 
