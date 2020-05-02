@@ -1,5 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import { OTSession, OTStreams } from 'opentok-react';
+import Publisher from './_parts/Publisher';
+import Subscriber from './_parts/Subscriber';
+import config from './_parts/translationConfig';
 import styles from './Lesson.module.less'
+import './_parts/custom.css';
+import ConnectionStatus from './_parts/ConnectionStatus'
 
 const Timer = ({ timeOff }) => {
     // Таймер задается тут
@@ -65,10 +71,38 @@ const Students = () => {
 }
 
 const Translation = () => {
+    const [error, setError] = useState(null);
+    const [connected, setConnected] = useState(false);
+    const sessionEvents = {
+        sessionConnected: () => {
+            setConnected(true);
+        },
+        sessionDisconnected: () => {
+            setConnected(false);
+        }
+    };
+    const onError = (err) => {
+        setError(`Ошибка подключения: ${err.message}`);
+    }
     return (
         <div className={styles.container}>
             <div className={styles.topPanel}>
-                <div className={styles.translation}>Ща урок будет</div>
+                <div className={styles.translation}>
+                    <OTSession
+                        apiKey={config.API_KEY}
+                        sessionId={config.SESSION_ID}
+                        token={config.TOKEN}
+                        eventHandlers={sessionEvents}
+                        onError={onError}
+                    >
+                        <Publisher />
+                        <OTStreams>
+                            <Subscriber />
+                        </OTStreams>
+                        <ConnectionStatus connected={connected} />
+                        {error ? <div>{error}</div> : null}
+                    </OTSession>
+                </div>
                 <div className={styles.lessonContent}>а тут содержание урока</div>
             </div>
             <Students />
