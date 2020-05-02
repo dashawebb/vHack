@@ -19,6 +19,11 @@
     src: url('./assets/fonts/Ubuntu-B.ttf');
 }
 
+input:focus, textarea:focus, button {
+    outline: none;
+    text-decoration: none;
+}
+
 body {
   margin: 0;
   padding: 0;
