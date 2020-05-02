@@ -84,7 +84,7 @@ const Translation = () => {
 }
 
 const Lesson = () => {
-    const [showTimer, setShowTimer] = useState(true)
+    const [showTimer, setShowTimer] = useState(false)
     return <>{showTimer ? <CounterScreen timeOff={setShowTimer} /> : <Translation />}</>
 }
 

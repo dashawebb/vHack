@@ -1,21 +1,24 @@
-import React from "react";
+import React from 'react'
 import styles from './Students.module.less'
-import axios from "axios";
+import { ReactComponent as Mute } from '../../assets/img/mute.svg'
+import { ReactComponent as Like } from '../../assets/img/like.svg'
+import axios from 'axios'
 
-let students = Array.from({length: 15}, (v, i) => i);
+let students = Array.from({ length: 15 }, (v, i) => i)
 
-const API = 'http://194.87.94.107:5001/user/'
+const API = 'http://194.87.94.107:5000/user/'
 
-
-const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODg0NDQ1NjgsImlhdCI6MTU4ODQzNzM2OCwic3ViIjo3LCJjbGFzcyI6MX0.wqDXzfmQNcswZ_XMf4U4BXjAA0NvS5Xi_GNCINPiRGM'
+const token =
+    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODg0NDQ1NjgsImlhdCI6MTU4ODQzNzM2OCwic3ViIjo3LCJjbGFzcyI6MX0.wqDXzfmQNcswZ_XMf4U4BXjAA0NvS5Xi_GNCINPiRGM'
 
 const authOptions = {
     method: 'POST',
-    url: 'http://194.87.94.107:5001/user/',
+    url: 'http://194.87.94.107:500/user/',
     headers: {
-        'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODg0NDQ1NjgsImlhdCI6MTU4ODQzNzM2OCwic3ViIjo3LCJjbGFzcyI6MX0.wqDXzfmQNcswZ_XMf4U4BXjAA0NvS5Xi_GNCINPiRGM',
+        Authorization:
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODg0NDQ1NjgsImlhdCI6MTU4ODQzNzM2OCwic3ViIjo3LCJjbGFzcyI6MX0.wqDXzfmQNcswZ_XMf4U4BXjAA0NvS5Xi_GNCINPiRGM',
     },
-};
+}
 // return dispatch => {
 //     return axios(authOptions)
 //         .then(function(response){
@@ -26,32 +29,39 @@ const authOptions = {
 //             console.log(error);
 //         });
 
-
-
-    const fetch = async () => {
-        try {
-            // setIsLoading(true)
-            const res = await axios.get(API, {
-                headers: {
-                    'Authorization': token,
-                }})
-            console.log(res)
-            // setData(res.data)
-            // setIsLoading(false)
-        } catch (error) {
-            console.log(error)
-        }
+const fetch = async () => {
+    try {
+        // setIsLoading(true)
+        const res = await axios.post(API,)
+        console.log(res)
+        // setData(res.data)
+        // setIsLoading(false)
+    } catch (error) {
+        console.log(error)
     }
-
+}
 
 const Students = () => {
     return (
         <div className={styles.students}>
-            <div>инфа о уроке</div>
-            {students.map((item) => <div className={styles.student}>Андрей</div>
-            )}
+            <div className={styles.lessonStat}>
+                <div className={styles.circle}>
+                    <p className={styles.text}>8A</p>
+                </div>
+                <div className={styles.stat}>
+                    <div className={styles.online}>онлайн</div>
+                    <div className={styles.text}>15/17</div>
+                </div>
+            </div>
+            {students.map((item) => (
+                <div key={item} style={{display: 'flex'}}>
+                <div className={styles.student}>Андрей
+                    <div className={styles.icons}><Mute /><Like /></div></div>
+                </div>
+            ))}
         </div>
     )
 }
 
 export default Students
+
