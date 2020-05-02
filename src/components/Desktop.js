@@ -61,6 +61,7 @@ const NavPanel = ({ selected, selectSection }) => {
                 {icons.map((item, index) => {
                     return (
                         <div
+                            key={index}
                             className={styles.button}
                             onClick={() => {
                                 selectSection(index)

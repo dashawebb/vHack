@@ -1,29 +1,32 @@
 import React, { useState, useEffect } from 'react'
+import LessonContent from "./LessonContent";
+import Students from "./Students";
+import Timer from './Timer'
 import styles from './Lesson.module.less'
 
-const Timer = ({ timeOff }) => {
+const CounterScreen = ({ timeOff }) => {
     // Таймер задается тут
-    const [counter, setCounter] = useState(5)
-
+    // const [counter, setCounter] = useState(5)
+    //
     const [timeToStart, setTimeToStart] = useState(false)
-
-    useEffect(() => {
-        const timer = counter > 0 && setInterval(() => setCounter(counter - 1), 1000)
-        return () => clearInterval(timer)
-    }, [counter])
-
-    const [time, setTime] = useState({ hours: 0, minutes: 0, seconds: 0 })
-    useEffect(() => {
-        setTime({
-            ...time,
-            hours: Math.floor(counter / 3600),
-            minutes: Math.floor(counter / 60),
-            seconds: counter,
-        })
-        if (counter === 0) {
-            setTimeToStart(true)
-        }
-    }, [counter])
+    //
+    // useEffect(() => {
+    //     const timer = counter > 0 && setInterval(() => setCounter(counter - 1), 1000)
+    //     return () => clearInterval(timer)
+    // }, [counter])
+    //
+    // const [time, setTime] = useState({ hours: 0, minutes: 0, seconds: 0 })
+    // useEffect(() => {
+    //     setTime({
+    //         ...time,
+    //         hours: Math.floor(counter / 3600),
+    //         minutes: Math.floor(counter / 60),
+    //         seconds: counter,
+    //     })
+    //     if (counter === 0) {
+    //         setTimeToStart(true)
+    //     }
+    // }, [counter])
 
     return (
         <div className={styles.content}>
@@ -37,10 +40,7 @@ const Timer = ({ timeOff }) => {
                         <div className={styles.title}>
                             {!timeToStart ? 'Урок начнётся через' : 'Урок начался!'}
                         </div>
-                        <div className={`${styles.timer} ${timeToStart ? styles.timerOff : ''}`}>
-                            0{time.hours} : 0{time.minutes} :{' '}
-                            {time.seconds > 60 ? time.seconds % (60 * time.minutes) : time.seconds}
-                        </div>
+                        <Timer seconds={5} timeToStart={timeToStart} setTimeToStart={setTimeToStart}/>
                     </div>
                 </div>
                 {timeToStart && (
@@ -53,23 +53,12 @@ const Timer = ({ timeOff }) => {
     )
 }
 
-let students = Array.from({length: 15}, (v, i) => i);
-
-const Students = () => {
-    return (
-    <div className={styles.students}>
-        {students.map((item) => <div className={styles.student}>Андрей</div>
-        )}
-    </div>
-    )
-}
-
 const Translation = () => {
     return (
         <div className={styles.container}>
             <div className={styles.topPanel}>
                 <div className={styles.translation}>Ща урок будет</div>
-                <div className={styles.lessonContent}>а тут содержание урока</div>
+                <LessonContent/>
             </div>
             <Students />
         </div>
@@ -78,7 +67,7 @@ const Translation = () => {
 
 const Lesson = () => {
     const [showTimer, setShowTimer] = useState(true)
-    return <>{showTimer ? <Timer timeOff={setShowTimer} /> : <Translation />}</>
+    return <>{showTimer ? <CounterScreen timeOff={setShowTimer} /> : <Translation />}</>
 }
 
 export default Lesson
