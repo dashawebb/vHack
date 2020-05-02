@@ -1,0 +1,10 @@
+.OTPublisherContainer {
+    width: 100vw !important;
+    height: 20vw !important;
+}
+    @media screen, (max-width: 1024px) {
+        .OTPublisherContainer {
+            width: 55vw !important;
+            height: 35vw !important;
+        }
+    }
