@@ -20,6 +20,7 @@
 }
 
 input:focus, textarea:focus, button {
+    border: none;
     outline: none;
     text-decoration: none;
 }
