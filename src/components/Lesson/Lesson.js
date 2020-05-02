@@ -3,7 +3,6 @@ import { OTSession, OTStreams } from 'opentok-react';
 import Publisher from './_parts/Publisher';
 import Subscriber from './_parts/Subscriber';
 import config from './_parts/translationConfig';
-import React, { useState, useEffect } from 'react'
 import LessonContent from './LessonContent'
 import Students from './Students'
 import Timer from './Timer'
