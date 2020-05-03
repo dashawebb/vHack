@@ -1,36 +1,36 @@
-import React, { Component } from 'react';
-import { OTPublisher } from 'opentok-react';
-import styles from './Translation.module.less';
+import React, { Component } from 'react'
+import { OTPublisher } from 'opentok-react'
+import styles from './Translation.module.less'
 
-import RadioButtons from './RadioButtons';
-import CheckBox from './CheckBox';
+import RadioButtons from './RadioButtons'
+import CheckBox from './CheckBox'
 
 export default class Publisher extends Component {
     constructor(props) {
-        super(props);
+        super(props)
 
         this.state = {
             error: null,
             audio: true,
             video: true,
-            videoSource: 'screen'
-        };
+            videoSource: 'screen',
+        }
     }
 
     setAudio = (audio) => {
-        this.setState({ audio });
+        this.setState({ audio })
     }
 
     setVideo = (video) => {
-        this.setState({ video });
+        this.setState({ video })
     }
 
     setVideoSource = (videoSource) => {
-        this.setState({ videoSource });
+        this.setState({ videoSource })
     }
 
     onError = (err) => {
-        this.setState({ error: `Ошибка трансляции: ${err.message}` });
+        this.setState({ error: `Ошибка трансляции: ${err.message}` })
     }
 
     render() {
@@ -41,37 +41,42 @@ export default class Publisher extends Component {
                     properties={{
                         publishAudio: this.state.audio,
                         publishVideo: this.state.video,
-                        videoSource: this.state.videoSource === 'screen' ? 'screen' : undefined
+                        videoSource: this.state.videoSource === 'screen' ? 'screen' : undefined,
                     }}
                     onError={this.onError}
                 />
-                <div>
-                    <RadioButtons
-                        buttons={[
-                            {
-                                label: 'Camera',
-                                value: 'camera'
-                            },
-                            {
-                                label: 'Screen',
-                                value: 'screen'
-                            }
-                        ]}
-                        initialChecked={this.state.videoSource}
-                        onChange={this.setVideoSource}
-                    />
-                    <CheckBox
-                        label="Publish Audio"
-                        initialChecked={this.state.audio}
-                        onChange={this.setAudio}
-                    />
-                    <CheckBox
-                        label="Publish Video"
-                        initialChecked={this.state.video}
-                        onChange={this.setVideo}
-                    />
+                <div className={styles.controls}>
+                    <div className={styles.col}>
+                        <RadioButtons
+                            buttons={[
+                                {
+                                    label: 'Camera',
+                                    value: 'camera',
+                                },
+                                {
+                                    label: 'Screen',
+                                    value: 'screen',
+                                },
+                            ]}
+                            initialChecked={this.state.videoSource}
+                            onChange={this.setVideoSource}
+                        />
+                    </div>
+
+                    <div className={styles.col}>
+                        <CheckBox
+                            label="Publish Audio"
+                            initialChecked={this.state.audio}
+                            onChange={this.setAudio}
+                        />
+                        <CheckBox
+                            label="Publish Video"
+                            initialChecked={this.state.video}
+                            onChange={this.setVideo}
+                        />
+                    </div>
                 </div>
             </div>
-        );
+        )
     }
 }
