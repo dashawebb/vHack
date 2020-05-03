@@ -36,13 +36,16 @@ const ToDoRecord = ({ onClick, name, classLetter, subject, deadline }) => {
 const API1 = 'https://194.87.94.107:5001/assessment/1'
 const API2 = 'https://194.87.94.107:5001/assessment/2'
 
-const HomeworkPage = () => {
+const HomeworkPage = ({ setShowHomework }) => {
     const [isLoading, setIsLoading] = useState(false)
     // const [images, setImages] = useState([])
     const [index, setIndex] = useState(0)
     const [lightboxIsOpen, setIsOpen] = useState(false)
 
-    const images = ['https://194.87.94.107:5001/assessment/1', 'https://194.87.94.107:5001/assessment/2']
+    const images = [
+        'https://194.87.94.107:5001/assessment/1',
+        'https://194.87.94.107:5001/assessment/2',
+    ]
 
     useEffect(() => {
         fetch()
@@ -65,9 +68,14 @@ const HomeworkPage = () => {
             {isLoading ? (
                 <Spinner />
             ) : (
-                <button className={styles.toDoButton} onClick={() => setIsOpen(true)}>
-                    Просмотреть домашнюю работу
-                </button>
+                <div className={styles.buttons}>
+                    <button className={styles.button} onClick={() => setShowHomework(false)}>
+                        Вернуться назад
+                    </button>
+                    <button className={styles.button} onClick={() => setIsOpen(true)}>
+                        Просмотреть домашнюю работу
+                    </button>
+                </div>
             )}
             {lightboxIsOpen && (
                 <>
@@ -97,7 +105,7 @@ const Homework = () => {
                     <>
                         <p className={styles.check}>Проверить</p>
                         <div className={styles.toDo}>
-                            <ul>
+                            <ul className={styles.toDoList}>
                                 <ToDoRecord
                                     onClick={() => setShowHomework(true)}
                                     name={'Иванова Татьяна'}
@@ -131,7 +139,7 @@ const Homework = () => {
                         </div>
                     </>
                 ) : (
-                    <HomeworkPage />
+                    <HomeworkPage setShowHomework={setShowHomework} />
                 )}
             </div>
         </div>
