@@ -1,5 +1,23 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, Component } from 'react'
+import Calendar from 'react-calendar'
 import styles from './Timetable.module.less'
+import 'react-calendar/dist/Calendar.css'
+
+class MyCalendar extends Component {
+    state = {
+        date: new Date(),
+    }
+
+    onChange = (date) => this.setState({ date })
+
+    render() {
+        return (
+            <div>
+                <Calendar onChange={this.onChange} value={this.state.date} locale={'ru'} />
+            </div>
+        )
+    }
+}
 
 const CalendarPanel = ({ setPanelVisible }) => {
     const HidePanelOnClick = (ref) => {
@@ -25,7 +43,10 @@ const CalendarPanel = ({ setPanelVisible }) => {
 
     return (
         <Wrapper>
-            <div className={styles.panel}>я календарик</div>
+            <div className={styles.panel}>
+                <MyCalendar />
+                <p className={styles.categories}>Категории</p>
+            </div>
         </Wrapper>
     )
 }

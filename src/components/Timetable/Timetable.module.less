@@ -33,7 +33,7 @@
         border-radius: 10px;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         cursor: pointer;
-        opacity: 0.4;
+        opacity: 0.6;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -42,15 +42,65 @@
     }
 
     .panel {
-        background-color: #333333;
+        align-items: center;
+        background: rgba(42, 46, 65, 0.7);
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
         height: 100vh;
-        opacity: 0.4;
         top: 0;
         position: absolute;
         right: 0;
         width: 500px;
         transition: all 800ms cubic-bezier(0.19, 1, 0.56, 1);
+        padding: 56px 20px;
         //transform: translate3d(0, -100%, 0);
+
+        .categories {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 16px;
+            color: #FFFFFF;
+        }
     }
+}
+
+:global .react-calendar,
+:global .react-calendar__tile,
+:global .react-calendar__navigation__label,
+:global .react-calendar__navigation__arrow {
+    background-color: rgba(51, 51, 51, 0) !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-family: 'Ubuntu', sans-serif !important;
+    font-style: normal !important;
+    font-weight: bold !important;
+    font-size: 19px !important;
+    line-height: 22px !important;
+    letter-spacing: 0.01em !important;
+}
+
+:global .react-calendar__navigation {
+    border-bottom: 1px solid #a6acbe;
+}
+:global .react-calendar {
+    color: #a6acbe !important;
+}
+
+:global .react-calendar__tile:not(.react-calendar__tile--active)  {
+    &:hover {
+        color: #a6acbe !important;
+    }
+}
+
+:global .react-calendar__navigation__label {
+    font-size: 28px !important;
+    line-height: 32px !important;
+
+}
+:global .react-calendar__tile--active {
+    color: #2e54d9 !important;
 }
