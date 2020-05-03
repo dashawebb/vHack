@@ -33,8 +33,8 @@ const ToDoRecord = ({ onClick, name, classLetter, subject, deadline }) => {
     )
 }
 
-const API1 = 'http://194.87.94.107:5000/assessment/1'
-const API2 = 'http://194.87.94.107:5000/assessment/2'
+const API1 = 'https://194.87.94.107:5001/assessment/1'
+const API2 = 'https://194.87.94.107:5001/assessment/2'
 
 const HomeworkPage = () => {
     const [isLoading, setIsLoading] = useState(false)
@@ -42,7 +42,7 @@ const HomeworkPage = () => {
     const [index, setIndex] = useState(0)
     const [lightboxIsOpen, setIsOpen] = useState(false)
 
-    const images = ['http://194.87.94.107:5000/assessment/1', 'http://194.87.94.107:5000/assessment/2']
+    const images = ['https://194.87.94.107:5001/assessment/1', 'https://194.87.94.107:5001/assessment/2']
 
     useEffect(() => {
         fetch()
