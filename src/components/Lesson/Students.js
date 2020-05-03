@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './Students.module.less'
 import { ReactComponent as Mute } from '../../assets/img/mute.svg'
+import { ReactComponent as Unmute } from '../../assets/img/unmute.svg'
 import { ReactComponent as Like } from '../../assets/img/like.svg'
 import axios from 'axios'
 
@@ -32,7 +33,7 @@ const authOptions = {
 const fetch = async () => {
     try {
         // setIsLoading(true)
-        const res = await axios.post(API,)
+        const res = await axios.post(API)
         console.log(res)
         // setData(res.data)
         // setIsLoading(false)
@@ -42,6 +43,8 @@ const fetch = async () => {
 }
 
 const Students = () => {
+    const [isMuted, changeMute] = useState(false)
+
     return (
         <div className={styles.students}>
             <div className={styles.lessonStat}>
@@ -54,9 +57,18 @@ const Students = () => {
                 </div>
             </div>
             {students.map((item) => (
-                <div key={item} style={{display: 'flex'}}>
-                <div className={styles.student}>Андрей
-                    <div className={styles.icons}><Mute /><Like /></div></div>
+                <div key={item} style={{ display: 'flex' }}>
+                    <div className={styles.student}>
+                        Андрей
+                        <div className={styles.icons}>
+                            {isMuted ? (
+                                <Unmute onClick={() => changeMute(false)} />
+                            ) : (
+                                <Mute onClick={() => changeMute(true)} />
+                            )}
+                            <Like />
+                        </div>
+                    </div>
                 </div>
             ))}
         </div>
@@ -64,4 +76,3 @@ const Students = () => {
 }
 
 export default Students
-

@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { OTSession, OTStreams } from 'opentok-react';
-import Publisher from './_parts/Publisher';
-import Subscriber from './_parts/Subscriber';
-import config from './_parts/translationConfig';
+import React, { useState, useEffect } from 'react'
+import { OTSession, OTStreams } from 'opentok-react'
+import Publisher from './_parts/Publisher'
+import Subscriber from './_parts/Subscriber'
+import config from './_parts/translationConfig'
 import LessonContent from './LessonContent'
 import Students from './Students'
 import Timer from './Timer'
 import styles from './Lesson.module.less'
-import './_parts/custom.css';
+import './_parts/custom.css'
 import ConnectionStatus from './_parts/ConnectionStatus'
 
 const CounterScreen = ({ timeOff }) => {
@@ -26,10 +26,7 @@ const CounterScreen = ({ timeOff }) => {
                             {!timeToStart ? 'Урок начнётся через' : 'Урок начался!'}
                         </div>
                         <div className={`${styles.timer} ${timeToStart ? styles.timerOff : ''}`}>
-                            <Timer
-                                seconds={5}
-                                setTimeToStart={setTimeToStart}
-                            />
+                            <Timer seconds={5} setTimeToStart={setTimeToStart} />
                         </div>
                     </div>
                 </div>
@@ -44,18 +41,18 @@ const CounterScreen = ({ timeOff }) => {
 }
 
 const Translation = () => {
-    const [error, setError] = useState(null);
-    const [connected, setConnected] = useState(false);
+    const [error, setError] = useState(null)
+    const [connected, setConnected] = useState(false)
     const sessionEvents = {
         sessionConnected: () => {
-            setConnected(true);
+            setConnected(true)
         },
         sessionDisconnected: () => {
-            setConnected(false);
-        }
-    };
+            setConnected(false)
+        },
+    }
     const onError = (err) => {
-        setError(`Ошибка подключения: ${err.message}`);
+        setError(`Ошибка подключения: ${err.message}`)
     }
     return (
         <div className={styles.container}>
@@ -84,7 +81,7 @@ const Translation = () => {
 }
 
 const Lesson = () => {
-    const [showTimer, setShowTimer] = useState(false)
+    const [showTimer, setShowTimer] = useState(true)
     return <>{showTimer ? <CounterScreen timeOff={setShowTimer} /> : <Translation />}</>
 }
 

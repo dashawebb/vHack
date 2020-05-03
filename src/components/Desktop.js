@@ -10,7 +10,7 @@ import Homework from './Homework/Homework'
 import Lesson from './Lesson/Lesson'
 import Timetable from './Timetable/Timetable'
 import Mail from './Mail/Mail'
-import styles from './DashboardPage.module.less'
+import styles from './Desktop.module.less'
 
 const API = 'http://194.87.94.107:5000/teacher/'
 // const API = 'https://api.github.com/repos/vmg/redcarpet/issues?state=closed'
@@ -42,8 +42,8 @@ const Dashboard = () => {
     return (
         <div className={styles.content}>
             <div className={styles.greeting}>
-                <div className={styles.title}>Добрый день, </div>
-                <div className={`${styles.name} ${styles.title}`}> Иванова Мария Петровна</div>
+                <p className={styles.title}>Добрый день, </p>
+                <p className={`${styles.name} ${styles.title}`}> Иванова Мария Петровна</p>
             </div>
         </div>
     )
