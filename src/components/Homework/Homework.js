@@ -42,7 +42,7 @@ const HomeworkPage = () => {
     const [index, setIndex] = useState(0)
     const [lightboxIsOpen, setIsOpen] = useState(false)
 
-    const images = ['//194.87.94.107:5000/assessment/1', '//194.87.94.107:5000/assessment/2']
+    const images = ['http://194.87.94.107:5000/assessment/1', 'http://194.87.94.107:5000/assessment/2']
 
     useEffect(() => {
         fetch()
