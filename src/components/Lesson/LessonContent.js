@@ -72,7 +72,7 @@ const LessonContent = () => {
         <div className={styles.wrapper}>
             <div className={styles.lessonContent}>
                 <div className={`${styles.timer} ${timeOff ? styles.timerOff : ''}`}>
-                    <Timer seconds={5} setTimeToStart={setTimeOff} />
+                    <Timer seconds={15} setTimeToStart={setTimeOff} />
                     <RingIcon />
                 </div>
                 {!timeOff ? <LessonPlan /> : <HomeworkForm />}

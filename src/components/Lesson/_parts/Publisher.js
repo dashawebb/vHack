@@ -36,7 +36,7 @@ export default class Publisher extends Component {
     render() {
         return (
             <div className={styles.publisher}>
-                {this.state.error ? <div>{this.state.error}</div> : null}
+                {/*{this.state.error ? <div>{this.state.error}</div> : null}*/}
                 <OTPublisher
                     properties={{
                         publishAudio: this.state.audio,

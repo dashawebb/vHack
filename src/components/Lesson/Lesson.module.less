@@ -98,12 +98,16 @@
     .topPanel {
         display: flex;
         height: 50vh;
+
         .translation {
             display: flex;
             flex-basis: 65%;
             align-items: baseline;
-            justify-content: center;
-            padding-top: 1vw;
+            //justify-content: center;
+            //max-height: 384px;
+            //max-width: 618px;
+            overflow: scroll;
+            padding: 1vw 22px 1vw;
         }
         .lessonContent {
             width: 33%;
@@ -128,4 +132,13 @@
     box-sizing: border-box;
     border-radius: 20px;
     margin: 30px;
+}
+
+.text {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.01em;
+    margin-bottom: 4px;
+    color: #a6acbe;
 }

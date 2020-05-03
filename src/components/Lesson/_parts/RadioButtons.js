@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { uniqueId } from 'lodash';
+import styles from './RadioButtons.module.less'
 
 export default class RadioButtons extends Component {
   constructor(props) {

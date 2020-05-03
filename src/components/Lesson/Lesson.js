@@ -66,11 +66,11 @@ const Translation = () => {
                         onError={onError}
                     >
                         <Publisher />
-                        <OTStreams>
-                            <Subscriber />
-                        </OTStreams>
+                        {/*<OTStreams>*/}
+                        {/*    <Subscriber />*/}
+                        {/*</OTStreams>*/}
                         <ConnectionStatus connected={connected} />
-                        {error ? <div>{error}</div> : null}
+                        {error ? <div className={styles.text}>{error}</div> : null}
                     </OTSession>
                 </div>
                 <LessonContent />
@@ -81,7 +81,7 @@ const Translation = () => {
 }
 
 const Lesson = () => {
-    const [showTimer, setShowTimer] = useState(true)
+    const [showTimer, setShowTimer] = useState(false)
     return <>{showTimer ? <CounterScreen timeOff={setShowTimer} /> : <Translation />}</>
 }
 
