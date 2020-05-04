@@ -73,7 +73,7 @@ const Students = () => {
                 </div>
             </div>
             {students.map((item) => (
-                <div key={item} style={{ display: 'flex' }}>
+                <div key={`${item} ${Math.random()}`} style={{ display: 'flex' }}>
                     <div className={styles.student}>
                         {item}
                         <div className={styles.icons}>

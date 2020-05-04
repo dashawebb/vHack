@@ -51,9 +51,8 @@ const CalendarPanel = ({ setPanelVisible }) => {
     )
 }
 
-
 const DailyCalendar = () => {
-    return (<div></div>)
+    return <div></div>
 }
 
 const Timetable = () => {

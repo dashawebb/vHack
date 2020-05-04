@@ -2,32 +2,28 @@ import React, { useState } from 'react'
 import Timer from './Timer'
 import { ReactComponent as RingIcon } from '../../assets/img/ring.svg'
 import styles from './LessonContent.module.less'
+import Test from '../SendQuestion/SendQuestion'
 
 const LessonPlan = () => {
     return (
-        <>
-            <div className={styles.topic}>
-                Значение, строение и функционирование нервной системы.
-            </div>
+        <div className={styles.questions}>
+            <div className={styles.topic}>Introducing the Present Continuous Tense </div>
             <div className={styles.checklist}>Чеклист урока</div>
-            <div className={styles.steps}>
-                <label className={styles.container}>
-                    Нервная система
-                    <input type="checkbox" />
-                    <span className={styles.checkmark}></span>
-                </label>
-                <label className={styles.container}>
-                    Нервная ткань
-                    <input type="checkbox" />
-                    <span className={styles.checkmark}></span>
-                </label>
-                <label className={styles.container}>
-                    Синапсы
-                    <input type="checkbox" />
-                    <span className={styles.checkmark}></span>
-                </label>
-            </div>
-        </>
+            <label className={styles.container}>
+                Present Continuous Tense <input type="checkbox" />
+                <span className={styles.checkmark}></span>
+            </label>
+            <label className={styles.container}>
+                Examples
+                <input type="checkbox" />
+                <span className={styles.checkmark}></span>
+            </label>
+            <label className={styles.container}>
+                Present Simple vs Present Continuous
+                <input type="checkbox" />
+                <span className={styles.checkmark}></span>
+            </label>
+        </div>
     )
 }
 
@@ -75,7 +71,9 @@ const LessonContent = () => {
                     <Timer seconds={15} setTimeToStart={setTimeOff} />
                     <RingIcon />
                 </div>
-                {!timeOff ? <LessonPlan /> : <HomeworkForm />}
+                {/*{!timeOff ? <LessonPlan /> : <HomeworkForm />}*/}
+                <LessonPlan />
+                <Test />
             </div>
         </div>
     )

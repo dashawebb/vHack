@@ -9,6 +9,7 @@ import Timer from './Timer'
 import styles from './Lesson.module.less'
 import './_parts/custom.css'
 import ConnectionStatus from './_parts/ConnectionStatus'
+import Test from '../SendQuestion/SendQuestion'
 
 const CounterScreen = ({ timeOff }) => {
     const [timeToStart, setTimeToStart] = useState(false)
@@ -81,7 +82,7 @@ const Translation = () => {
 }
 
 const Lesson = () => {
-    const [showTimer, setShowTimer] = useState(true)
+    const [showTimer, setShowTimer] = useState(false)
     return <>{showTimer ? <CounterScreen timeOff={setShowTimer} /> : <Translation />}</>
 }
 
