@@ -2,40 +2,43 @@
     width: 33%;
 
     .lessonContent {
-        background: #F4F5FA;
+        background: #f4f5fa;
         border-radius: 10px;
         box-sizing: border-box;
         padding: 34px;
+        overflow-y: scroll;
         height: 100%;
 
+        .questions {
+            margin-bottom: 30px;
 
-        .topic {
-            color: #333333;
-            font-family: "Ubuntu", sans-serif;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 18px;
-            line-height: 21px;
-            margin-bottom: 14px;
+            .topic {
+                color: #333333;
+                font-family: 'Ubuntu', sans-serif;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 18px;
+                line-height: 21px;
+                margin-bottom: 14px;
+            }
+
+            .checklist {
+                color: #a6acbe;
+                font-family: 'Ubuntu', sans-serif;
+                font-style: normal;
+                font-size: 14px;
+                line-height: 16px;
+                letter-spacing: 0.01em;
+                margin-bottom: 32px;
+            }
         }
-
-        .checklist {
-            color: #A6ACBE;
-            font-family: "Ubuntu", sans-serif;
-            font-style: normal;
-            font-size: 14px;
-            line-height: 16px;
-            letter-spacing: 0.01em;
-            margin-bottom: 32px;
-        }
-
 
         .timer {
             align-items: center;
             color: #8576ed;
             display: flex;
             justify-content: space-around;
-            font-family: "Ubuntu", sans-serif;
+            font-family: 'Ubuntu', sans-serif;
             font-style: normal;
             font-weight: bold;
             font-size: 28px;
@@ -57,23 +60,23 @@
     box-sizing: border-box;
     border: 1px solid #e5e5e5;
     resize: none;
-    font-family: "Ubuntu", sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-size: 18px;
     line-height: 21px;
-    color: #243D6F;
+    color: #243d6f;
 
     &:focus {
-        border: 1px solid #6C8DFF;
+        border: 1px solid #6c8dff;
     }
 }
 
 .button {
     width: 171px;
     height: 50px;
-    background: #6C8DFF;
+    background: #6c8dff;
     border-radius: 5px;
     cursor: pointer;
-    font-family: "Ubuntu", sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-size: 14px;
     line-height: 16px;
     display: flex;
@@ -82,10 +85,28 @@
     text-align: center;
     letter-spacing: 0.01em;
     margin-bottom: 28px;
-    color: #FFFFFF;
+    color: #ffffff;
     &:hover {
-        background-color: #6686F9;
+        background-color: #6686f9;
     }
+}
+
+.buttonSuccess {
+    width: 171px;
+    height: 50px;
+    background: #59e69a;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 0.01em;
+    margin-bottom: 28px;
+    color: #ffffff;
 }
 
 .form {
@@ -103,7 +124,7 @@
     color: #333333;
     cursor: pointer;
     font-size: 22px;
-    font-family: "Ubuntu", sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-style: normal;
     font-size: 18px;
     justify-content: center;
@@ -117,7 +138,6 @@
     position: relative;
     padding-left: 40px;
     line-height: 21px;
-
 }
 
 .container input {
@@ -149,7 +169,7 @@
 }
 
 .checkmark:after {
-    content: "";
+    content: '';
     position: absolute;
     display: none;
 }
