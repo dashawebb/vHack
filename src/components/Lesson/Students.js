@@ -5,7 +5,7 @@ import { ReactComponent as Unmute } from '../../assets/img/unmute.svg'
 import { ReactComponent as Like } from '../../assets/img/like.svg'
 import axios from 'axios'
 
-let students = Array.from({ length: 15 }, (v, i) => i)
+// let students = Array.from({ length: 15 }, (v, i) => i)
 
 const API = 'http://194.87.94.107:5000/user/'
 
@@ -42,6 +42,22 @@ const fetch = async () => {
     }
 }
 
+const students = [
+    'Анна Петрушкина',
+    'Иван Комиссаров',
+    'Никита Иванов',
+    'Павел Соловьев',
+    'Валерия Петрова',
+    'Жанна Артемова',
+    'Андрей Тряпочкин',
+    'Павел Соловьев',
+    'Валерия Петрова',
+    'Жанна Артемова',
+    'Андрей Тряпочкин',
+    'Жанна Артемова',
+    'Андрей Тряпочкин',
+]
+
 const Students = () => {
     const [isMuted, changeMute] = useState(false)
 
@@ -59,7 +75,7 @@ const Students = () => {
             {students.map((item) => (
                 <div key={item} style={{ display: 'flex' }}>
                     <div className={styles.student}>
-                        Андрей
+                        {item}
                         <div className={styles.icons}>
                             {isMuted ? (
                                 <Unmute onClick={() => changeMute(false)} />

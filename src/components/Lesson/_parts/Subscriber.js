@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { OTSubscriber } from 'opentok-react'
-import styles from './Translation.module.less';
 
 import CheckBox from './CheckBox';
 
@@ -29,7 +28,7 @@ export default class Subscriber extends Component {
 
     render() {
         return (
-            <div className={styles.subscriber}>
+            <div>
                 {this.state.error ? <div>{this.state.error}</div> : null}
                 <OTSubscriber
                     properties={{

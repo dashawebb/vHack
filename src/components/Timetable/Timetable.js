@@ -51,12 +51,19 @@ const CalendarPanel = ({ setPanelVisible }) => {
     )
 }
 
+
+const DailyCalendar = () => {
+    return (<div></div>)
+}
+
 const Timetable = () => {
     const [showTimetable, setShowTimetable] = useState(false)
     return (
         <div className={styles.content}>
             <p className={styles.schedule}>Моё расписание</p>
-            <div className={styles.card}></div>
+            <div className={styles.card}>
+                <DailyCalendar />
+            </div>
             {!showTimetable ? (
                 <div className={styles.calendarPicker} onClick={() => setShowTimetable(true)}></div>
             ) : (
